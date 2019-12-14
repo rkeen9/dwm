@@ -61,8 +61,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[] = { "google-chrome", NULL};
 // pactl set-sink-volume bluez_sink.58_B3_FC_D1_41_BA.a2dp_sink -3%
-// static const char *volumeup[]  = { "amixer", "-D", "default", "sset", "Master", "1%+", "unmute", NULL };
-// static const char *volumedown[]  = { "amixer", "-D", "default", "sset", "Master", "1%-", "unmute", NULL };
+static const char *speakerVolumeUp[]  = { "amixer", "-D", "default", "sset", "Master", "1%+", "unmute", NULL };
+static const char *speakerVolumeDown[]  = { "amixer", "-D", "default", "sset", "Master", "1%-", "unmute", NULL };
 // static const char *volumeup[]  = { "pactl", "set-sink-volume", "bluez_sink.58_B3_FC_D1_41_BA.a2dp_sink","+2%",  NULL };
 // static const char *volumedown[]  = {"pactl", "set-sink-volume", "bluez_sink.58_B3_FC_D1_41_BA.a2dp_sink","-2%",   NULL };
 static const char *volumeup[]  = { "/home/robert/scripts/volume_up.sh", NULL };
