@@ -85,6 +85,7 @@ static Key keys[] = {
     { MODKEY|ControlMask,           XK_b,                   spawn,          {.v = bluetooth } }, 
     { 0,                            XF86XK_MonBrightnessUp, spawn,          {.v = brightnessup} },
     { 0,                           XF86XK_MonBrightnessDown,spawn,          {.v = brightnessdown} },
+    { MODKEY|ControlMask|ShiftMask, XK_q,                   quit,           {1} }, 
 	{ MODKEY|ShiftMask,             XK_h,                   setcfact,       {.f = +0.25} },
 	{ MODKEY|ShiftMask,             XK_l,                   setcfact,       {.f = -0.25} },
 	{ MODKEY|ShiftMask,             XK_o,                   setcfact,       {.f =  0.00} }, 
