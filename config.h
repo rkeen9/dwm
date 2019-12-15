@@ -16,21 +16,22 @@ static const char col_gray5[]       = "#282828";
 static const char col_cyan[]        = "#005577";
 static const char col_aqua[]        = "#427b58";
 static const char col_blue[]        = "#458588";
+static const char col_purple[]      = "#EE82EE";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_gray5 },
+	[SchemeSel]  = { col_gray4, "#616673",  col_gray5 },
 };
 
 static const unsigned int alphas[][3]      = {
 	/*               fg      bg        border     */
-	[SchemeNorm] = { OPAQUE, 0xd0, OPAQUE },
-	[SchemeSel]  = { OPAQUE, 0xd0, OPAQUE },
+	[SchemeNorm] = { OPAQUE, 0xD0, OPAQUE },
+	[SchemeSel]  = { OPAQUE, 0xD0, OPAQUE },
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1 ", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
