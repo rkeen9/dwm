@@ -16,10 +16,17 @@ static const char col_gray5[]       = "#282828";
 static const char col_cyan[]        = "#005577";
 static const char col_aqua[]        = "#427b58";
 static const char col_blue[]        = "#458588";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_gray5 },
+};
+
+static const unsigned int alphas[][3]      = {
+	/*               fg      bg        border     */
+	[SchemeNorm] = { OPAQUE, 0xd0, OPAQUE },
+	[SchemeSel]  = { OPAQUE, 0xd0, OPAQUE },
 };
 
 /* tagging */
