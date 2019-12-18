@@ -83,8 +83,8 @@ static const char *volumeup[]  = { "/home/robert/scripts/volume_up.sh", NULL };
 static const char *volumedown[]  = { "/home/robert/scripts/volume_down.sh", NULL };
 static const char *screenshot[] = { "flameshot", "gui", "-p", "/home/robert/images/screenshots", NULL };
 static const char *bluetooth[] = { "blueman-applet", "&", "blueman-manager", NULL };
-static const char *brightnessup[] = { "xbacklight", "-inc", "20", NULL };
-static const char *brightnessdown[] = { "xbacklight", "-dec", "20", NULL };
+static const char *brightnessup[] = { "xbacklight", "-inc", "10", NULL };
+static const char *brightnessdown[] = { "xbacklight", "-dec", "10", NULL };
 
 static Key keys[] = {
 	/* modifier                     key                     function        argument */
