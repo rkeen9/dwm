@@ -75,8 +75,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[] = { "google-chrome", NULL};
 // pactl set-sink-volume bluez_sink.58_B3_FC_D1_41_BA.a2dp_sink -3%
-static const char *speakerVolumeUp[]  = { "amixer", "-D", "default", "sset", "Master", "1%+", "unmute", NULL };
-static const char *speakerVolumeDown[]  = { "amixer", "-D", "default", "sset", "Master", "1%-", "unmute", NULL };
+static const char *speakerVolumeUp[]  = { "/home/robert/scripts/speaker_volume_up.sh", NULL };
+static const char *speakerVolumeDown[]  = { "/home/robert/scripts/speaker_volume_down.sh",  NULL };
 // static const char *volumeup[]  = { "pactl", "set-sink-volume", "bluez_sink.58_B3_FC_D1_41_BA.a2dp_sink","+2%",  NULL };
 // static const char *volumedown[]  = {"pactl", "set-sink-volume", "bluez_sink.58_B3_FC_D1_41_BA.a2dp_sink","-2%",   NULL };
 static const char *volumeup[]  = { "/home/robert/scripts/volume_up.sh", NULL };
@@ -104,6 +104,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_u,                   setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_o,                   setlayout,      {.v = &layouts[4]} }, 
 	{ MODKEY|ShiftMask,             XK_v,                   setlayout,      {.v = &layouts[5]} },
+    { MODKEY,                       0x5d,                   spawn,          {.v = speakerVolumeUp } }, 
+    { MODKEY,                       0x5b,                   spawn,          {.v = speakerVolumeDown } },
 	{ MODKEY,                       XK_b,                   togglebar,      {0} },
 	{ MODKEY,                       XK_j,                   focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,                   focusstack,     {.i = -1 } },
