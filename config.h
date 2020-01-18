@@ -74,17 +74,17 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[] = { "google-chrome", NULL};
-// pactl set-sink-volume bluez_sink.58_B3_FC_D1_41_BA.a2dp_sink -3%
 static const char *speakerVolumeUp[]  = { "/home/robert/scripts/speaker_volume_up.sh", NULL };
 static const char *speakerVolumeDown[]  = { "/home/robert/scripts/speaker_volume_down.sh",  NULL };
-// static const char *volumeup[]  = { "pactl", "set-sink-volume", "bluez_sink.58_B3_FC_D1_41_BA.a2dp_sink","+2%",  NULL };
-// static const char *volumedown[]  = {"pactl", "set-sink-volume", "bluez_sink.58_B3_FC_D1_41_BA.a2dp_sink","-2%",   NULL };
 static const char *volumeup[]  = { "/home/robert/scripts/volume_up.sh", NULL };
 static const char *volumedown[]  = { "/home/robert/scripts/volume_down.sh", NULL };
 static const char *screenshot[] = { "flameshot", "gui", "-p", "/home/robert/images/screenshots", NULL };
 static const char *bluetooth[] = { "blueman-applet", "&", "blueman-manager", NULL };
 static const char *brightnessup[] = { "xbacklight", "-inc", "10", NULL };
 static const char *brightnessdown[] = { "xbacklight", "-dec", "10", NULL };
+static const char *bluetoothmenu[] = { "blueman-manager", NULL };
+static const char *updatekeyboard[] = { "setxkbmap", "-option", "caps:swapescape", NULL };
+static const char *shutdown[] = { "sudo", "shutdown", "-P", "now", NULL };
 
 static Key keys[] = {
 	/* modifier                     key                     function        argument */
@@ -104,8 +104,11 @@ static Key keys[] = {
 	{ MODKEY,                       XK_u,                   setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_o,                   setlayout,      {.v = &layouts[4]} }, 
 	{ MODKEY|ShiftMask,             XK_v,                   setlayout,      {.v = &layouts[5]} },
-    { MODKEY,                       0x5d,                   spawn,          {.v = speakerVolumeUp } }, 
-    { MODKEY,                       0x5b,                   spawn,          {.v = speakerVolumeDown } },
+    { MODKEY,                       XF86XK_AudioRaiseVolume,spawn,          {.v = speakerVolumeUp } },
+    { MODKEY,                       XF86XK_AudioLowerVolume,spawn,          {.v = speakerVolumeDown } },
+    { MODKEY|ControlMask,           XK_k,                   spawn,          {.v = updatekeyboard } }, 
+    { MODKEY|ControlMask,           XK_b,                   spawn,          {.v = bluetoothmenu } },
+    { MODKEY|ControlMask|ShiftMask, XK_p,                   spawn,          {.v = shutdown } },
 	{ MODKEY,                       XK_b,                   togglebar,      {0} },
 	{ MODKEY,                       XK_j,                   focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,                   focusstack,     {.i = -1 } },
