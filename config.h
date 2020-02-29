@@ -21,14 +21,17 @@ static const char col_blue[]        = "#458588";
 static const char col_purple[]      = "#EE82EE";
 static const char col_black[]       = "#000000";
 static const char col_red[]         = "#FF0000";
-static const char col_yellow[]      = "#b57614";
+static const char col_yellow[]      = "#ffff00";
 static const char col_pink[]        = "#934b52";
+static const char col_white[]       = "#ffffff";
 // static const char col_border[]      = "#ec368d";
 static const char col_border[]      = "#cc241d";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_black },
 	[SchemeSel]  = { col_gray4, col_pink,  col_border },
+	[SchemeWarn] =	 { col_black, col_yellow, col_red },
+	[SchemeUrgent]=	 { col_white, col_red,    col_red }, 
 };
 
 static const unsigned int alphas[][3]      = {
