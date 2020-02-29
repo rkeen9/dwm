@@ -7,7 +7,7 @@ static const unsigned int gappx     = 15;       /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "DejaVu Sans Mono:size=10" };
+static const char *fonts[]          = { "DejaVu Sans Mono:size=10" }; 
 static const char dmenufont[]       = "DejaVu Sans Mono:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -20,24 +20,29 @@ static const char col_aqua[]        = "#427b58";
 static const char col_blue[]        = "#458588";
 static const char col_purple[]      = "#EE82EE";
 static const char col_black[]       = "#000000";
-static const char col_red[]         = "#FF0000";
+static const char col_red[]         = "#9e170e";
 static const char col_yellow[]      = "#ffff00";
 static const char col_pink[]        = "#934b52";
 static const char col_white[]       = "#ffffff";
+static const char col_green[]       = "#77a347";
+// static const char col_green[]       = "#698f3f";
 // static const char col_border[]      = "#ec368d";
 static const char col_border[]      = "#cc241d";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
+    /*               text       bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_black },
 	[SchemeSel]  = { col_gray4, col_pink,  col_border },
-	[SchemeWarn] =	 { col_black, col_yellow, col_red },
-	[SchemeUrgent]=	 { col_white, col_red,    col_red }, 
+	[SchemeRed]  = { col_red,   col_gray1, col_black },
+	[SchemeGreen]= { col_green,   col_gray1, col_black }, 
 };
 
 static const unsigned int alphas[][3]      = {
-	/*               fg      bg        border     */
-	[SchemeNorm] = { OPAQUE, 0xD0, OPAQUE },
-	[SchemeSel]  = { OPAQUE, 0xD0, OPAQUE },
+	/*                fg      bg        border     */
+	[SchemeNorm]  = { OPAQUE, 0xD0, OPAQUE },
+	[SchemeSel]   = { OPAQUE, 0xD0, OPAQUE },
+    [SchemeRed]   = { OPAQUE, 0xD0, OPAQUE },
+    [SchemeGreen] = { OPAQUE, 0xD0, OPAQUE },
 };
 
 /* tagging */
