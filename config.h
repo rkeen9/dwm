@@ -22,13 +22,12 @@ static const char col_purple[]      = "#EE82EE";
 static const char col_black[]       = "#000000";
 static const char col_red[]         = "#FF0000";
 static const char col_yellow[]      = "#b57614";
-// static const char col_fg[]          = "#BE616A"  ;
-static const char col_fg[]          = "#934b52";
+static const char col_pink[]        = "#934b52";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_black },
-	[SchemeSel]  = { col_gray4, col_fg,  col_red },
+	[SchemeSel]  = { col_gray4, col_pink,  col_red },
 };
 
 static const unsigned int alphas[][3]      = {
