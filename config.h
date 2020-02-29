@@ -2,7 +2,7 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 13;       /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -23,11 +23,12 @@ static const char col_black[]       = "#000000";
 static const char col_red[]         = "#FF0000";
 static const char col_yellow[]      = "#b57614";
 static const char col_pink[]        = "#934b52";
-
+// static const char col_border[]      = "#ec368d";
+static const char col_border[]      = "#cc241d";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_black },
-	[SchemeSel]  = { col_gray4, col_pink,  col_red },
+	[SchemeSel]  = { col_gray4, col_pink,  col_border },
 };
 
 static const unsigned int alphas[][3]      = {
