@@ -1,0 +1,12 @@
+# Patches Currently Installed
+- [colored status text](https://dwm.suckless.org/patches/statuscolors/)
+- [tilegap](https://dwm.suckless.org/patches/tilegap/)
+- [fake fullscreen](https://dwm.suckless.org/patches/fakefullscreen/)
+- [nomonocleborders](https://gist.github.com/SebastianJarsve/497b2014774c849df0132d7118cbab65)
+- [noborder](https://dwm.suckless.org/patches/noborder/)
+- [columns](https://dwm.suckless.org/patches/columns/)
+- [alpha](https://dwm.suckless.org/patches/alpha/)
+- [restartsig](https://dwm.suckless.org/patches/restartsig/)
+- [centered master](https://dwm.suckless.org/patches/centeredmaster/)
+- [pertag](https://dwm.suckless.org/patches/pertag/)
+- [cfacts](https://dwm.suckless.org/patches/cfacts/)
