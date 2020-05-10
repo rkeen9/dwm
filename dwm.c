@@ -220,6 +220,7 @@ static void sigterm(int unused);
 static void spawn(const Arg *arg);
 static void tag(const Arg *arg);
 static void tagmon(const Arg *arg);
+static void focusmontagmon(const Arg *arg);
 static void tile(Monitor *);
 static void gaps(Monitor *);
 static void togglebar(const Arg *arg);
@@ -888,6 +889,25 @@ focusmon(const Arg *arg)
 	unfocus(selmon->sel, 0);
 	selmon = m;
 	focus(NULL);
+}
+
+void
+focusmontagmon(const Arg *arg)
+{
+	Monitor *m;
+
+    if (!selmon->sel || !mons->next)
+		return;
+	sendmon(selmon->sel, dirtomon(arg->i));
+
+	if (!mons->next)
+		return;
+	if ((m = dirtomon(arg->i)) == selmon)
+		return;
+	unfocus(selmon->sel, 0);
+	selmon = m;
+	focus(NULL);
+
 }
 
 void
