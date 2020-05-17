@@ -894,12 +894,8 @@ focusmon(const Arg *arg)
 void
 focusmontagmon(const Arg *arg)
 {
+    tagmon(arg);
 	Monitor *m;
-
-    if (!selmon->sel || !mons->next)
-		return;
-	sendmon(selmon->sel, dirtomon(arg->i));
-
 	if (!mons->next)
 		return;
 	if ((m = dirtomon(arg->i)) == selmon)
@@ -907,7 +903,6 @@ focusmontagmon(const Arg *arg)
 	unfocus(selmon->sel, 0);
 	selmon = m;
 	focus(NULL);
-
 }
 
 void

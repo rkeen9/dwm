@@ -7,8 +7,8 @@ static const unsigned int gappx     = 15;       /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "DejaVu Sans Mono:size=12" }; 
-static const char dmenufont[]       = "DejaVu Sans Mono:size=12";
+static const char *fonts[]          = { "Source Code Pro:size=12" }; 
+static const char dmenufont[]       = "Source Code Pro:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -146,12 +146,12 @@ static Key keys[] = {
 	{ MODKEY,                       XK_space,                setlayout,      {0} },
 	{ MODKEY,                       XK_0,                    view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,                    tag,            {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_h,                    focusmon,       {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_l,                    focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_j,                    focusmon,       {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_k,                    focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,                focusmontagmon, {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period,               focusmontagmon, {.i = +1 } },
 	{ MODKEY,                       XK_comma,                tagmon,         {.i = -1 } },
 	{ MODKEY,                       XK_period,               tagmon,         {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,                focusmontagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period,               focusmontagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                                    0)
 	TAGKEYS(                        XK_2,                                    1)
 	TAGKEYS(                        XK_3,                                    2)
