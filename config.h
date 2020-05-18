@@ -102,8 +102,10 @@ static const char *brightnessdown[] = { "xbacklight", "-dec", "10", NULL };
 static const char *bluetoothmenu[] = { "blueman-manager", NULL };
 static const char *updatekeyboard[] = { "setxkbmap", "-option", "caps:swapescape", NULL };
 static const char *shutdown[] = { "sudo", "shutdown", "-P", "now", NULL };
-static const char *mount[] = { "sudo", "mount", "/dev/sdc1", "/media/usb"};
-static const char *umount[] = { "sudo", "umount", "/media/usb"};
+static const char *mount[] = { "sudo", "mount", "/dev/sdc1", "/media/usb", NULL};
+static const char *umount[] = { "sudo", "umount", "/media/usb", NULL};
+static const char *files[] = { "thunar", NULL };
+static const char *audio[] = { "/home/robert/scripts/audio.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key                      function        argument */
@@ -129,6 +131,8 @@ static Key keys[] = {
     { MODKEY|ControlMask|ShiftMask, XK_p,                    spawn,          {.v = shutdown } },
     { MODKEY|ControlMask,           XK_m,                    spawn,          {.v = mount } },
     { MODKEY|ControlMask|ShiftMask, XK_m,                    spawn,          {.v = umount} },
+    { MODKEY,                       XK_e,                    spawn,          {.v = files} },
+    { MODKEY,                       XK_a,                    spawn,          {.v = audio} },
 	{ MODKEY,                       XK_b,                    togglebar,      {0} },
 	{ MODKEY,                       XK_k,                    focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_j,                    focusstack,     {.i = -1 } },
@@ -172,7 +176,7 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
-	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
+	{ ClkClientWin,         MODKEY|ShiftMask,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
