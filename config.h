@@ -100,7 +100,7 @@ static const char *screenshot[] = { "flameshot", "gui", "-p", "/home/robert/imag
 static const char *bluetooth[] = { "blueman-applet", "&", "blueman-manager", NULL };
 static const char *brightnessup[] = { "xbacklight", "-inc", "10", NULL };
 static const char *brightnessdown[] = { "xbacklight", "-dec", "10", NULL };
-static const char *bluetoothmenu[] = { "blueman-manager", NULL };
+static const char *bluetoothmenu[] = { "st", "-e", "bluetoothctl", NULL };
 static const char *updatekeyboard[] = { "setxkbmap", "-option", "caps:swapescape", NULL };
 static const char *shutdown[] = { "sudo", "shutdown", "-P", "now", NULL };
 static const char *mount[] = { "sudo", "mount", "/dev/sdc1", "/media/usb", NULL};
@@ -109,6 +109,7 @@ static const char *files[] = { "thunar", NULL };
 static const char *audio[] = { "/home/robert/scripts/audio.sh", NULL };
 static const char *reboot[] = { "sudo", "reboot", NULL };
 static const char *anki[] = { "anki", NULL };
+static const char *ranger[] = { "st", "-e", "ranger", NULL };
 
 static Key keys[] = {
 	/* modifier                     key                      function        argument */
@@ -119,9 +120,8 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn,          {.v = volumeup } },
 	{ 0,                            XF86XK_AudioLowerVolume, spawn,          {.v = volumedown } },
     { 0,                            XK_Print,                spawn,          {.v = screenshot } },
-    { MODKEY|ControlMask,           XK_b,                    spawn,          {.v = bluetooth } }, 
     { 0,                            XF86XK_MonBrightnessUp,  spawn,          {.v = brightnessup} },
-    { 0,                            XF86XK_MonBrightnessDown,spawn,         {.v = brightnessdown} },
+    { 0,                            XF86XK_MonBrightnessDown,spawn,          {.v = brightnessdown} },
     { MODKEY|ControlMask|ShiftMask, XK_q,                    quit,           {1} }, 
 	{ MODKEY|ShiftMask,             XK_h,                    setcfact,       {.f = +0.25} },
 	{ MODKEY|ShiftMask,             XK_l,                    setcfact,       {.f = -0.25} },
@@ -135,6 +135,7 @@ static Key keys[] = {
     { MODKEY|ControlMask,           XK_m,                    spawn,          {.v = mount } },
     { MODKEY|ControlMask|ShiftMask, XK_m,                    spawn,          {.v = umount} },
     { MODKEY,                       XK_e,                    spawn,          {.v = files} },
+    { MODKEY,                       XK_r,                    spawn,          {.v = ranger} },
     { MODKEY,                       XK_a,                    spawn,          {.v = audio} },
     { MODKEY|ControlMask|ShiftMask, XK_r,                    spawn,          {.v = reboot} },
     { MODKEY|ShiftMask,             XK_a,                    spawn,          {.v = anki} },
@@ -155,8 +156,8 @@ static Key keys[] = {
 //	{ MODKEY,                       XK_space,                setlayout,      {0} },
 	{ MODKEY,                       XK_0,                    view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,                    tag,            {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_j,                    focusmon,       {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_k,                    focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_h,                    focusmon,       {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_l,                    focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,                focusmontagmon, {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period,               focusmontagmon, {.i = +1 } },
 	{ MODKEY,                       XK_comma,                tagmon,         {.i = -1 } },
