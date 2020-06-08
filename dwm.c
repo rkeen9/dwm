@@ -1374,8 +1374,7 @@ resizeclient(Client *c, int x, int y, int w, int h)
 		c->w = wc.width += c->bw * 2;
 		c->h = wc.height += c->bw * 2;
 	}
-    else if (((nexttiled(c->mon->clients) == c && !nexttiled(c->next))
-	    || &monocle == c->mon->lt[c->mon->sellt]->arrange)
+    else if ((&monocle == c->mon->lt[c->mon->sellt]->arrange)
 	    && !c->isfullscreen && !c->isfloating) {
 		c->w = wc.width += c->bw * 2;
 		c->h = wc.height += c->bw * 2;
