@@ -110,6 +110,11 @@ static const char *audio[] = { "/home/robert/scripts/audio.sh", NULL };
 static const char *reboot[] = { "sudo", "reboot", NULL };
 static const char *anki[] = { "anki", NULL };
 static const char *ranger[] = { "st", "-e", "ranger", NULL };
+static const char *zoomConference[] = { "zoom", NULL };
+static const char *weather[] = { "st", "-e", "/home/robert/scripts/weather.sh", NULL };
+static const char *python[] = { "st", "-e", "python", NULL };
+static const char *newsboat[] = { "st", "-e", "newsboat", NULL };
+static const char *kanji[] = { "/home/robert/scripts/rtk_keyboard.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key                      function        argument */
@@ -123,8 +128,8 @@ static Key keys[] = {
     { 0,                            XF86XK_MonBrightnessUp,  spawn,          {.v = brightnessup} },
     { 0,                            XF86XK_MonBrightnessDown,spawn,          {.v = brightnessdown} },
     { MODKEY|ControlMask|ShiftMask, XK_q,                    quit,           {1} }, 
-	{ MODKEY|ShiftMask,             XK_h,                    setcfact,       {.f = +0.25} },
-	{ MODKEY|ShiftMask,             XK_l,                    setcfact,       {.f = -0.25} },
+	{ ControlMask|ShiftMask,        XK_H,                    setcfact,       {.f = +0.25} },
+	{ ControlMask|ShiftMask,        XK_L,                    setcfact,       {.f = -0.25} },
 	{ MODKEY|ShiftMask,             XK_o,                    setcfact,       {.f =  0.00} }, 
 	{ MODKEY,                       XK_u,                    setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_o,                    setlayout,      {.v = &layouts[4]} }, 
@@ -139,6 +144,11 @@ static Key keys[] = {
     { MODKEY,                       XK_a,                    spawn,          {.v = audio} },
     { MODKEY|ControlMask|ShiftMask, XK_r,                    spawn,          {.v = reboot} },
     { MODKEY|ShiftMask,             XK_a,                    spawn,          {.v = anki} },
+    { MODKEY,                       XK_w,                    spawn,          {.v = weather} },
+    { MODKEY,                       XK_z,                    spawn,          {.v = zoomConference} },
+    { MODKEY|ShiftMask,             XK_p,                    spawn,          {.v = python} },
+    { MODKEY,                       XK_n,                    spawn,          {.v = newsboat} },
+    { MODKEY|ShiftMask,             XK_n,                    spawn,          {.v = kanji} },
 	{ MODKEY,                       XK_b,                    togglebar,      {0} },
 	{ MODKEY,                       XK_k,                    focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_j,                    focusstack,     {.i = -1 } },
