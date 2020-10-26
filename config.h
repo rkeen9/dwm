@@ -147,7 +147,7 @@ static Key keys[] = {
     { MODKEY,                       XK_w,                    spawn,          {.v = weather} },
     { MODKEY,                       XK_z,                    spawn,          {.v = zoomConference} },
     { MODKEY|ShiftMask,             XK_p,                    spawn,          {.v = python} },
-    { MODKEY,                       XK_n,                    spawn,          {.v = newsboat} },
+//  { MODKEY,                       XK_n,                    spawn,          {.v = newsboat} },
     { MODKEY|ShiftMask,             XK_n,                    spawn,          {.v = kanji} },
 	{ MODKEY,                       XK_b,                    togglebar,      {0} },
 	{ MODKEY,                       XK_k,                    focusstack,     {.i = +1 } },
