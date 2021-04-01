@@ -92,7 +92,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *browsercmd[] = { "firefox", NULL};
+static const char *browsercmd[] = { "brave", NULL};
 static const char *spotifycmd[] = {"spotify", NULL};
 static const char *volumeup[]  = { "/home/robert/scripts/volume_up.sh", NULL };
 static const char *volumedown[]  = { "/home/robert/scripts/volume_down.sh", NULL };
@@ -115,6 +115,9 @@ static const char *weather[] = { "st", "-e", "/home/robert/scripts/weather.sh", 
 static const char *python[] = { "st", "-e", "python", NULL };
 static const char *newsboat[] = { "st", "-e", "newsboat", NULL };
 static const char *kanji[] = { "/home/robert/scripts/rtk_keyboard.sh", NULL };
+static const char *record[] = { "st", "-e", "/home/robert/scripts/record_desktop.sh", NULL };
+static const char *engOCR[] = { "/home/robert/scripts/ocr_eng.sh", NULL };
+static const char *jpnOCR[] = { "/home/robert/scripts/ocr_jpn.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key                      function        argument */
@@ -149,6 +152,9 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_p,                    spawn,          {.v = python} },
 //  { MODKEY,                       XK_n,                    spawn,          {.v = newsboat} },
     { MODKEY|ShiftMask,             XK_n,                    spawn,          {.v = kanji} },
+    { MODKEY|ShiftMask,             XK_r,                    spawn,          {.v = record} },
+    { SUPER,                        XK_o,                    spawn,          {.v = engOCR} },
+    { SUPER|ShiftMask,              XK_o,                    spawn,          {.v = jpnOCR} },
 	{ MODKEY,                       XK_b,                    togglebar,      {0} },
 	{ MODKEY,                       XK_k,                    focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_j,                    focusstack,     {.i = -1 } },
@@ -192,7 +198,7 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
-	{ ClkClientWin,         SUPER,          Button1,        movemouse,      {0} },
+	{ ClkClientWin,         MODKEY,          Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
