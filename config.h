@@ -118,6 +118,7 @@ static const char *kanji[] = { "/home/robert/scripts/rtk_keyboard.sh", NULL };
 static const char *record[] = { "st", "-e", "/home/robert/scripts/record_desktop.sh", NULL };
 static const char *engOCR[] = { "/home/robert/scripts/ocr_eng.sh", NULL };
 static const char *jpnOCR[] = { "/home/robert/scripts/ocr_jpn.sh", NULL };
+static const char *markdownImg[] = { "/home/robert/scripts/markdown_img.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key                      function        argument */
@@ -150,7 +151,7 @@ static Key keys[] = {
     { MODKEY,                       XK_w,                    spawn,          {.v = weather} },
     { MODKEY,                       XK_z,                    spawn,          {.v = zoomConference} },
     { MODKEY|ShiftMask,             XK_p,                    spawn,          {.v = python} },
-//  { MODKEY,                       XK_n,                    spawn,          {.v = newsboat} },
+    { MODKEY,                       XK_n,                    spawn,          {.v = markdownImg} },
     { MODKEY|ShiftMask,             XK_n,                    spawn,          {.v = kanji} },
     { MODKEY|ShiftMask,             XK_r,                    spawn,          {.v = record} },
     { SUPER,                        XK_o,                    spawn,          {.v = engOCR} },
