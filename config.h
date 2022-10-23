@@ -7,8 +7,8 @@ static const unsigned int gappx     = 15;       /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Source Code Pro:size=12" }; 
-static const char dmenufont[]       = "Source Code Pro:size=12";
+static const char *fonts[]          = { "Source Code Pro:size=8" }; 
+static const char dmenufont[]       = "Source Code Pro:size=8";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -26,23 +26,28 @@ static const char col_pink[]        = "#934b52";
 static const char col_white[]       = "#ffffff";
 static const char col_green[]       = "#77a347";
 static const char col_border[]      = "#cc241d";
+// Colours for Nord Theme
+static const char col_nord_gray[]      = "#D8DEE9";
+static const char col_nord_dark_blue[] = "#3B4252";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-    /*               text       bg         border   */
+        /*               text       bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_black },
-	[SchemeSel]  = { col_gray4, col_pink,  col_border },
+	// [SchemeSel]  = { col_gray4, col_pink,  col_border },
+	[SchemeSel]  = { col_gray4, col_nord_dark_blue,  col_pink },
 	[SchemeRed]  = { col_red,   col_gray1, col_black },
 	[SchemeGreen]= { col_green, col_gray1, col_black }, 
-    [SchemeBlue] = { col_blue,  col_gray1, col_black }, 
+        [SchemeBlue] = { col_blue,  col_gray1, col_black }, 
 };
 
 static const unsigned int alphas[][3]      = {
 	/*                fg      bg    border     */
 	[SchemeNorm]  = { OPAQUE, 0xD0, OPAQUE },
 	[SchemeSel]   = { OPAQUE, 0xD0, OPAQUE },
-    [SchemeRed]   = { OPAQUE, 0xD0, OPAQUE },
-    [SchemeGreen] = { OPAQUE, 0xD0, OPAQUE },
-    [SchemeBlue]  = { OPAQUE, 0xD0, OPAQUE },
+        [SchemeRed]   = { OPAQUE, 0xD0, OPAQUE },
+        [SchemeGreen] = { OPAQUE, 0xD0, OPAQUE },
+        [SchemeBlue]  = { OPAQUE, 0xD0, OPAQUE },
 };
 
 /* tagging */
@@ -56,8 +61,6 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     iscentered     isfloating   monitor */
 //	{ "Gimp",     NULL,       NULL,       0,            0,             1,           -1 },
 	{ "Spotify",  NULL,       NULL,       1 << 8,       0,             0,           -1 },
-
-
 };
 
 /* layout(s) */
@@ -70,10 +73,10 @@ static const Layout layouts[] = {
 	{ "[]=",      gaps },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
-    { "|M|",      centeredmaster },
-    { ">M>",      centeredfloatingmaster }, 
+        { "|M|",      centeredmaster },
+        { ">M>",      centeredfloatingmaster }, 
 	{ "|||",      col },
-    { "[G]=",     tile },
+        { "[G]=",     tile },
 };
 
 /* key definitions */
@@ -125,37 +128,37 @@ static Key keys[] = {
 	{ MODKEY,                       XK_p,                    spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return,               spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,		        XK_b,                    spawn,          {.v = browsercmd } },
-    { MODKEY,                       XK_s,                    spawn,          {.v = spotifycmd} },
+        { MODKEY,                       XK_s,                    spawn,          {.v = spotifycmd} },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn,          {.v = volumeup } },
 	{ 0,                            XF86XK_AudioLowerVolume, spawn,          {.v = volumedown } },
-    { 0,                            XK_Print,                spawn,          {.v = screenshot } },
-    { 0,                            XF86XK_MonBrightnessUp,  spawn,          {.v = brightnessup} },
-    { 0,                            XF86XK_MonBrightnessDown,spawn,          {.v = brightnessdown} },
-    { MODKEY|ControlMask|ShiftMask, XK_q,                    quit,           {1} }, 
+        { 0,                            XK_Print,                spawn,          {.v = screenshot } },
+        { 0,                            XF86XK_MonBrightnessUp,  spawn,          {.v = brightnessup} },
+        { 0,                            XF86XK_MonBrightnessDown,spawn,          {.v = brightnessdown} },
+        { MODKEY|ControlMask|ShiftMask, XK_q,                    quit,           {1} }, 
 	{ ControlMask|ShiftMask,        XK_H,                    setcfact,       {.f = +0.25} },
 	{ ControlMask|ShiftMask,        XK_L,                    setcfact,       {.f = -0.25} },
 	{ MODKEY|ShiftMask,             XK_o,                    setcfact,       {.f =  0.00} }, 
 	{ MODKEY,                       XK_u,                    setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_o,                    setlayout,      {.v = &layouts[4]} }, 
 	{ MODKEY|ShiftMask,             XK_v,                    setlayout,      {.v = &layouts[5]} },
-    { MODKEY|ControlMask,           XK_k,                    spawn,          {.v = updatekeyboard } }, 
-    { MODKEY|ControlMask,           XK_b,                    spawn,          {.v = bluetoothmenu } },
-    { MODKEY|ControlMask|ShiftMask, XK_p,                    spawn,          {.v = shutdown } },
-    { MODKEY|ControlMask,           XK_m,                    spawn,          {.v = mount } },
-    { MODKEY|ControlMask|ShiftMask, XK_m,                    spawn,          {.v = umount} },
-    { MODKEY,                       XK_e,                    spawn,          {.v = files} },
-    { MODKEY,                       XK_r,                    spawn,          {.v = ranger} },
-    { MODKEY,                       XK_a,                    spawn,          {.v = audio} },
-    { MODKEY|ControlMask|ShiftMask, XK_r,                    spawn,          {.v = reboot} },
-    { MODKEY|ShiftMask,             XK_a,                    spawn,          {.v = anki} },
-    { MODKEY,                       XK_w,                    spawn,          {.v = weather} },
-    { MODKEY,                       XK_z,                    spawn,          {.v = zoomConference} },
-    { MODKEY|ShiftMask,             XK_p,                    spawn,          {.v = python} },
-    { MODKEY,                       XK_n,                    spawn,          {.v = markdownImg} },
-    { MODKEY|ShiftMask,             XK_n,                    spawn,          {.v = kanji} },
-    { MODKEY|ShiftMask,             XK_r,                    spawn,          {.v = record} },
-    { SUPER,                        XK_o,                    spawn,          {.v = engOCR} },
-    { SUPER|ShiftMask,              XK_o,                    spawn,          {.v = jpnOCR} },
+        { MODKEY|ControlMask,           XK_k,                    spawn,          {.v = updatekeyboard } }, 
+        { MODKEY|ControlMask,           XK_b,                    spawn,          {.v = bluetoothmenu } },
+        { MODKEY|ControlMask|ShiftMask, XK_p,                    spawn,          {.v = shutdown } },
+        { MODKEY|ControlMask,           XK_m,                    spawn,          {.v = mount } },
+        { MODKEY|ControlMask|ShiftMask, XK_m,                    spawn,          {.v = umount} },
+        { MODKEY,                       XK_e,                    spawn,          {.v = files} },
+        { MODKEY,                       XK_r,                    spawn,          {.v = ranger} },
+        { MODKEY,                       XK_a,                    spawn,          {.v = audio} },
+        { MODKEY|ControlMask|ShiftMask, XK_r,                    spawn,          {.v = reboot} },
+        { MODKEY|ShiftMask,             XK_a,                    spawn,          {.v = anki} },
+        { MODKEY,                       XK_w,                    spawn,          {.v = weather} },
+        { MODKEY,                       XK_z,                    spawn,          {.v = zoomConference} },
+        { MODKEY|ShiftMask,             XK_p,                    spawn,          {.v = python} },
+        { MODKEY,                       XK_n,                    spawn,          {.v = markdownImg} },
+        { MODKEY|ShiftMask,             XK_n,                    spawn,          {.v = kanji} },
+        { MODKEY|ShiftMask,             XK_r,                    spawn,          {.v = record} },
+        { SUPER,                        XK_o,                    spawn,          {.v = engOCR} },
+        { SUPER|ShiftMask,              XK_o,                    spawn,          {.v = jpnOCR} },
 	{ MODKEY,                       XK_b,                    togglebar,      {0} },
 	{ MODKEY,                       XK_k,                    focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_j,                    focusstack,     {.i = -1 } },
