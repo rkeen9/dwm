@@ -27,10 +27,20 @@ static const char col_border[]      = "#cc241d";
 // Colours for Nord Theme
 static const char col_nord_gray[]      = "#D8DEE9";
 static const char col_nord_dark_blue[] = "#3B4252";
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_black },
 	[SchemeSel]  = { col_gray4, col_nord_dark_blue,  col_pink },
+};
+
+// Alpha config
+static const unsigned int baralpha = 0xd0;
+static const unsigned int borderalpha = OPAQUE;
+static const unsigned int alphas[][3]      = {
+	/*               fg      bg        border     */
+	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
@@ -74,7 +84,7 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 // Personal Commands
-static const char *browsercmd[] = { "brave", NULL};
+static const char *browsercmd[] = { "librewolf", NULL};
 static const char *spotifycmd[] = {"spotify", NULL};
 static const char *volumeup[]  = { "/home/rob/scripts/volume_up.sh", NULL };
 static const char *volumedown[]  = { "/home/rob/scripts/volume_down.sh", NULL };
