@@ -84,7 +84,7 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 // Personal Commands
-static const char *browsercmd[] = { "librewolf", NULL};
+static const char *browsercmd[] = { "firefox", NULL};
 static const char *spotifycmd[] = {"spotify", NULL};
 static const char *volumeup[]  = { "/home/rob/scripts/volume_up.sh", NULL };
 static const char *volumedown[]  = { "/home/rob/scripts/volume_down.sh", NULL };
